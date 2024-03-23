@@ -1,0 +1,224 @@
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+
+/* Variables */
+:root {
+  --blue: #0f46ff;
+  --btn-blue: #2057fd;
+  --white: #fff;
+  --font-stack: "Open Sans", sans-serif;
+}
+
+/* Common styles for flex column layout */
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Common button styles */
+.button-styles {
+  width: 80%;
+  padding: 10px 20px;
+  border-radius: 15px;
+  border: none;
+  outline: none;
+
+  background-color: var(--btn-blue);
+  color: var(--white);
+  cursor: pointer;
+
+  /* Active state */
+  &:active {
+    background-color: #ddd;
+    color: var(--blue);
+  }
+}
+
+/* Global styles */
+body {
+  margin: 0;
+  font-family: var(--font-stack);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: rgb(216, 220, 234);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* App container */
+.app {
+  width: 300px;
+  height: 600px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(15, 70, 255, 0.3) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  background-color: var(--white);
+}
+
+/* Home page styles */
+.home__page {
+  @extend .flex-column;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+.home__page h1 {
+  color: var(--blue);
+  font-size: 24px;
+  margin-bottom: 1rem;
+}
+
+.home__page button {
+  @extend .button-styles;
+  margin-top: 1rem;
+}
+
+/* Score section styles */
+.score__section {
+  @extend .flex-column;
+  gap: 2rem;
+  font-size: 24px;
+}
+
+.score__section button {
+  @extend .button-styles;
+}
+
+.score__section span {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Animation classes */
+.fade-out {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.fade-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Question section styles */
+.question__section {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  @extend .flex-column;
+  align-items: flex-start;
+  background-color: var(--white);
+  padding: 30px 20px 0;
+  transform-origin: bottom center;
+  pointer-events: none;
+}
+
+.question__section .question__count {
+  width: 100%;
+  margin-bottom: 20px;
+  text-align: center;
+  position: relative;
+}
+
+.question__section .question__count span:first-child {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  cursor: pointer;
+}
+
+.question__section .question__count span:last-child {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.question__section .progress__bar {
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.question__section .progress__bar .progress__indicator {
+  height: 5px;
+  background-color: var(--blue);
+  transition: width 0.5s ease-in-out;
+}
+
+.question__section .question__text {
+  margin-bottom: 12px;
+  font-size: 1.5rem;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.question__section p {
+  margin: auto 0 2rem;
+  font-size: 14px;
+}
+
+/* Answer section styles */
+.answer__section {
+  width: 100%;
+  min-height: 18rem;
+  padding: 1rem 0;
+  @extend .flex-column;
+  justify-content: center;
+  background: var(--blue);
+  overflow: hidden;
+}
+
+.answer__section .answer__section-btns {
+  width: 100%;
+  @extend .flex-column;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.answer__section button {
+  width: 85%;
+  line-height: 3rem;
+  background-color: var(--btn-blue);
+  color: var(--white);
+  font: bold 14px/3rem var(--font-stack);
+  text-align: left;
+  border: 0;
+  box-shadow: -4px 0px 0px var(--white);
+  outline: transparent;
+  margin-bottom: 10px;
+  padding-left: 1rem;
+  position: relative;
+  overflow: hidden;
+  background-image: linear-gradient(90deg, white 0%, white 0%);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  transition: background-size 0.75s ease;
+  cursor: pointer;
+}
+
+.answer__section button:hover {
+  background-size: 100% 100%;
+  color: var(--blue);
+}
+
+.answer__section button span {
+  font-weight: normal;
+  margin-right: 1rem;
+}
+
